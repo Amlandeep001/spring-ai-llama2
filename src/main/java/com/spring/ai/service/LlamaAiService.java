@@ -1,4 +1,4 @@
-package com.javatechie.service;
+package com.spring.ai.service;
 
 import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.ai.chat.prompt.Prompt;

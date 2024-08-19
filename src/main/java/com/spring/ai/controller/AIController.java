@@ -1,9 +1,10 @@
-package com.javatechie.controller;
+package com.spring.ai.controller;
 
-import com.javatechie.service.LlamaAiService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.spring.ai.service.LlamaAiService;
 
 @RestController
 public class AIController
