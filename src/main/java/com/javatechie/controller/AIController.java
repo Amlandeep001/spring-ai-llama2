@@ -16,7 +16,7 @@ public class AIController
     }
 
     @GetMapping("/api/v1/generate")
-    public String generate(@RequestParam(value = "promptMessage") String promptMessage)
+    public String generate(@RequestParam String promptMessage)
     {
         return aiService.generateResult(promptMessage);
     }
