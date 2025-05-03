@@ -10,23 +10,26 @@ import org.springframework.stereotype.Service;
 @Service
 public class LlamaAiService
 {
-    private final OllamaChatModel chatModel;
-    private final String ollamaModel;
+	private final OllamaChatModel chatModel;
+	private final String ollamaModel;
 
-    public LlamaAiService(OllamaChatModel chatModel, @Value("${spring.ai.ollama.model}") String ollamaModel)
-    {
-        this.chatModel = chatModel;
-        this.ollamaModel = ollamaModel;
-    }
+	public LlamaAiService(OllamaChatModel chatModel, @Value("${spring.ai.ollama.model}") String ollamaModel)
+	{
+		this.chatModel = chatModel;
+		this.ollamaModel = ollamaModel;
+	}
 
-    public String generateResult(String prompt)
-    {
-        ChatResponse response = chatModel.call(
-                new Prompt(
-                        prompt,
-                        OllamaOptions.create()
-                                .withModel(ollamaModel)
-                ));
-        return response.getResult().getOutput().getContent();
-    }
+	public String generateResult(String prompt)
+	{
+		ChatResponse response = chatModel.call(
+				new Prompt(
+						prompt,
+						OllamaOptions/*.builder()
+										.model(ollamaModel)
+										.build()*/
+								.create()
+								.withModel(ollamaModel)));
+		return response.getResult().getOutput().getContent();
+		// return response.getResult().getOutput().getText();
+	}
 }
